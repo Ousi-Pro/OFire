@@ -25,13 +25,12 @@
         };
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-       async function to(name, age, location){
+       async function to(name, age){
         // Add a document with a custom ID
           try {
             await setDoc(doc(db, "users", "user_1"), {
               name: name,
-              age: age,
-              location: location
+              age: age
             });
             console.log("Document successfully written!");
           } catch (error) {
@@ -49,7 +48,7 @@
             if (docSnap.exists()) {
               console.log("Document data:", docSnap.data());
               // Display the document data in the div
-              out.textContent = `Name: ${docSnap.data().name}, Age: ${docSnap.data().age}, Location: ${docSnap.data().job}`;
+              out.textContent = `Name: ${docSnap.data().name}, Age: ${docSnap.data().age}}`;
             } else {
               console.log("No such document!");
               out.textContent = "No such document!";
